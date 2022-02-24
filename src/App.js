@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Chat from "./components/Chat";
 import "./App.css";
 import io from "socket.io-client";
-import { findDOMNode } from "react-dom";
+//import { findDOMNode } from "react-dom";
 import "./App.css";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -10,23 +10,23 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import ReactPlayer from "react-player";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import {makeStyles}  from "@material-ui/core/styles";
 //import ChatWidget from "./components/ChatWidget"
 /* eslint-disable import/first */
 const socket = io.connect("http://localhost:4000");
 
-import Slider from "@material-ui/core/Slider";
-import Tooltip from "@material-ui/core/Tooltip";
+//import Slider from "@material-ui/core/Slider";
+//import Tooltip from "@material-ui/core/Tooltip";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import VolumeUp from "@material-ui/icons/VolumeUp";
-import VolumeDown from "@material-ui/icons/VolumeDown";
-import VolumeMute from "@material-ui/icons/VolumeOff";
-import FullScreen from "@material-ui/icons/Fullscreen";
-import Popover from "@material-ui/core/Popover";
+//import VolumeUp from "@material-ui/icons/VolumeUp";
+//import VolumeDown from "@material-ui/icons/VolumeDown";
+//import VolumeMute from "@material-ui/icons/VolumeOff";
+//import FullScreen from "@material-ui/icons/Fullscreen";
+//import Popover from "@material-ui/core/Popover";
 import screenful from "screenfull";
 import Controls from "./components/Controls";
-import axios from 'axios';
+//import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   playerWrapper: {
@@ -104,57 +104,49 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PrettoSlider = withStyles({
-  root: {
-    height: 8,
-  },
-  thumb: {
-    height: 24,
-    width: 24,
-    backgroundColor: "#fff",
-    border: "2px solid currentColor",
-    marginTop: -8,
-    marginLeft: -12,
-    "&:focus, &:hover, &$active": {
-      boxShadow: "inherit",
-    },
-  },
-  active: {},
-  valueLabel: {
-    left: "calc(-50% + 4px)",
-  },
-  track: {
-    height: 8,
-    borderRadius: 4,
-  },
-  rail: {
-    height: 8,
-    borderRadius: 4,
-  },
-})(Slider);
+// const PrettoSlider = withStyles({
+//   root: {
+//     height: 8,
+//   },
+//   thumb: {
+//     height: 24,
+//     width: 24,
+//     backgroundColor: "#fff",
+//     border: "2px solid currentColor",
+//     marginTop: -8,
+//     marginLeft: -12,
+//     "&:focus, &:hover, &$active": {
+//       boxShadow: "inherit",
+//     },
+//   },
+//   active: {},
+//   valueLabel: {
+//     left: "calc(-50% + 4px)",
+//   },
+//   track: {
+//     height: 8,
+//     borderRadius: 4,
+//   },
+//   rail: {
+//     height: 8,
+//     borderRadius: 4,
+//   },
+// })(Slider);
 
-function ValueLabelComponent(props) {
-  const { children, open, value } = props;
-  const [media, setmedia] = useState([]);
+// function ValueLabelComponent(props) {
+//   const { children, open, value } = props;
+//   const [media, setmedia] = useState([]);
 
-  useEffect(() => {
-    const getmedia = () => {
-        axios.get('http://localhost:4000').then(res => {
-            const details = res.data[0];
-            console.log(details);
-            setmedia(details);
-        });
-    }
+ 
 
-  getmedia();
-}, []);
+//   return (
+//     <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
+//       {children}
+//     </Tooltip>
+//   );
+// }
 
-  return (
-    <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
-      {children}
-    </Tooltip>
-  );
-}
+
 
 const format = (seconds) => {
   if (isNaN(seconds)) {
@@ -174,9 +166,9 @@ let count = 0;
 
 function App() {
   const classes = useStyles();
-  const [showControls, setShowControls] = useState(false);
-   const [count, setCount] = useState(0);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  //const [showControls, setShowControls] = useState(false);
+   //const [count, setCount] = useState(0);
+  //const [anchorEl, setAnchorEl] = React.useState(null);
   const [timeDisplayFormat, setTimeDisplayFormat] = React.useState("normal");
   const [bookmarks, setBookmarks] = useState([]);
   const [state, setState] = useState({
@@ -200,7 +192,7 @@ function App() {
   const canvasRef = useRef(null);
   const {
     playing,
-    controls,
+    // controls,
     light,
 
     muted,
@@ -208,7 +200,7 @@ function App() {
     playbackRate,
     pip,
     played,
-    seeking,
+    // seeking,
     volume,
   } = state;
 
@@ -425,7 +417,7 @@ function App() {
                 }}
                 elevation={3}
               >
-                <img crossOrigin="anonymous" src={bookmark.image} />
+                {/* <img crossOrigin="anonymous" src={bookmark.image} /> */}
                 <Typography variant="body2" align="center">
                   bookmark at {bookmark.display}
                 </Typography>

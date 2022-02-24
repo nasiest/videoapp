@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
+//import axios from 'axios';
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -90,7 +91,18 @@ const PrettoSlider = withStyles({
 
 function ValueLabelComponent(props) {
   const { children, open, value } = props;
+  // const [media, setmedia] = useState([]);
 
+  // useEffect(() => {
+  //   const getmedia = () => {
+  //       axios.get('http://localhost:4000').then(res => {
+  //           const details = res.data[0];
+  //           console.log(details);
+  //           setmedia(details);
+  //       });
+  //   }
+  //   getmedia();
+  //     }, []);
   return (
     <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
       {children}
